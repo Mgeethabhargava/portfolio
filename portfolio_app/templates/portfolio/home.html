@@ -1,0 +1,225 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block title %}Geetha Bhargava{% endblock %}
+
+{% block content %}
+
+<!-- Home Section -->
+<section id="home" class="mt-5" style="padding-top: 6%;">
+    <div class="container">
+        <div class="row">
+            <!-- Left side: Text -->
+            <div class="col-md-7 text-left">
+                <h1 class="display-4 text-left">Welcome to My Portfolio!</h1>
+                <p>I'm <strong>Mandava Geetha Bhargava</strong></p>
+
+                <!-- Animated Text -->
+                <p class="lead text-primary">
+                    <div class="triangle-arrow"></div><span id="typed-text"></span>
+                </p>
+
+                <!-- Social Media Icons (optional) -->
+                <div class="d-flex mt-2 text-left">
+                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="text-dark mx-3">
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank" class="text-dark mx-3">
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                    <a href="https://www.researchgate.net/profile/yourprofile" target="_blank" class="text-dark mx-3">
+                        <i class="fab fa-researchgate fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right side: Circular Image -->
+            <div class="col-md-5 align-items-right">
+                <div class="image-container">
+                <img src="https://avatars.githubusercontent.com/u/24910158?s=400&u=0a12bc9c48eab5960022e2bc7b5bd3d091a6cbab&v=4" alt="Your Photo" class="rounded-circle" width="600px" height="600px">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="my-5" style="padding-top: 5%;">
+    <h2 class="text-center">About Me</h2>
+    <div class="row">
+        <div class="col-md-6 aboutmeimg" >
+            <img src="{% static 'portfolio/images/aboutme.jpg' %}" class="img-fluid" alt="About Image" width="600px" height="900px">
+        </div>
+        <div class="col-md-6 aboutme">
+            <p style="color: blueviolet;">who am I?</p> <br/>
+            <p>Hello, I'm Mandava Geetha Bhargava, a dedicated Software Developer and Freelancer with a passion for creativity and rapid learning. I excel at problem-solving and have a strong background in Python and Django, specializing in developing dynamic web applications with Django and Flask, as well as mobile applications using Flutter. My track record highlights a commitment to delivering high-quality projects efficiently and effectively.</p>
+            <p>I hold an M.Tech in Computer Science and Engineering, alongside a B.Tech in Civil Engineering from K L University. Outside of my core work, I enjoy exploring Flutter and digital marketing, aiming to support others in launching their projects and research through freelancing, you can find my publication <a href="https://scholar.google.com/citations?user=2eeHnDUAAAAJ">here</a>. With nearly 4 years of hands-on experience, I am committed to creating innovative, user-focused solutions. Let’s connect and make your vision a reality!</p>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="my-5" style="padding-top: 5%;">
+    <h2 class="text-center">What I Can do?</h2>
+    <p class="text-center">I may not be perfect but surely I'm of some use :)</p>
+    <div class="row align-items-center">
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <img src="{% static 'portfolio/images/webdev.jpg' %}" class="card-img-top" alt="Project 1">
+                <div >
+                    <h5 style="text-align:center;">Web Development</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <img src="{% static 'portfolio/images/aiml.jpg' %}" class="card-img-top" alt="Project 2">
+                <div >
+                    <h5 style="text-align:center;">Machine Learning</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <img src="{% static 'portfolio/images/powerbi.jpg' %}" class="card-img-top" alt="Project 2">
+                <div >
+                    <h5 style="text-align:center;">Power BI</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <img src="{% static 'portfolio/images/automation.jpg' %}" class="card-img-top" alt="Project 1">
+                <div >
+                    <h5 style="text-align:center;">Automation</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="my-5" style="padding-top: 4%;margin-bottom: 0;">
+    <h2 class="text-center">Projects</h2>
+    <div class="container">
+    <div class="row align-items-center">
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <a href="https://github.com/Mgeethabhargava/Mgeethabhargava-AI-Stockpredictor-Chatbot" target="_blank" style="text-decoration: none;">
+                <img src="{% static 'portfolio/images/chatbot.jpg' %}" class="card-img-top" alt="Project 1">
+                <div >
+                    <h5 style="text-align:center;color: black;" class="card-body">AI Stock Predictor Using Chatbot</h5>
+                </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <a href="https://github.com/Mgeethabhargava/newsapp-flutter" target="_blank" style="text-decoration: none;">
+                <img src="{% static 'portfolio/images/newsapp.jpg' %}" class="card-img-top" alt="Project 2">
+                <div >
+                    <h5  style="text-align:center;color: black;"class="card-body">News Mobile Application Using Flutter</h5>
+                </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <a href="https://github.com/Mgeethabhargava/InvoiceAutomate" target="_blank" style="text-decoration: none;">
+                <img src="{% static 'portfolio/images/cloudinvoice.jpg' %}" class="card-img-top" alt="Project 2">
+                <div >
+                    <h5 style="text-align:center;color: black;" class="card-body">Automation of Invoices using Azure Instance</h5>
+                </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3 mb-4">
+            <div class="card">
+                <a href="https://github.com/Mgeethabhargava/certificate_generator" target="_blank" style="text-decoration: none;">
+                <img src="{% static 'portfolio/images/certificatesystem.jpg' %}" class="card-img-top" alt="Project 1">
+                <div >
+                    <h5 style="text-align:center;color: black;" class="card-body">Certificate Management using Flask</h5>
+                </div>
+                </a>
+            </div>
+        </div>
+        <div class="container see-more-container">
+            <button onclick="window.open('https://www.github.com/Mgeethabhargava', '_blank')" class="btn btn-success see-more-btn">See More</button>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="my-5" style="padding-top: 4%;">
+    <h2 class="text-center">Experience</h2>
+    <div class="row">
+        <div class="col-md-6 align-items-right" style="padding-left:15% ;">
+            <img src="{% static 'portfolio/images/experience.jpg' %}" class="img-fluid" alt="Experience Image" width="500" height="500">
+        </div>
+        <div class="col-md-6">
+            <div class="container py-5">
+                <div class="row">
+                  <!-- First Entry -->
+                  <div class="col-12">
+                    <div class="timeline-card d-flex align-items-center">
+                      <div class="timeline-icon me-3">
+                        <i class="bi bi-briefcase"></i>
+                      </div>
+                      <div>
+                        <div class="timeline-duration">Aug 2024 - Present</div>
+                        <div class="timeline-role">Freelancer</div>
+                        <div class="timeline-company"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Second Entry -->
+                  <div class="col-12">
+                    <div class="timeline-card d-flex align-items-center">
+                      <div class="timeline-icon me-3">
+                        <i class="bi bi-briefcase"></i>
+                      </div>
+                      <div>
+                        <div class="timeline-duration">Oct 2023 - July 2024</div>
+                        <div class="timeline-role">Software Engineer</div>
+                        <div class="timeline-company">Nitya Software India P Ltd</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Third Entry -->
+                  <div class="col-12">
+                    <div class="timeline-card d-flex align-items-center">
+                      <div class="timeline-icon me-3">
+                        <i class="bi bi-briefcase"></i>
+                      </div>
+                      <div>
+                        <div class="timeline-duration">May 2020 - Dec 2020</div>
+                        <div class="timeline-role">Junior Python Developer</div>
+                        <div class="timeline-company">Turbolab Technologies</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                        <div class="container see-more-container">
+            <button onclick="window.open('https://www.linkedin.com/in/mgbhargava/', '_blank')" class="btn btn-success see-more-btn">See More</button>
+        </div>
+              </div>
+            
+        </div>
+    </div>
+</section>
+<script>
+    // Initialize Typed.js for the animated text
+    var typed = new Typed('#typed-text', {
+        strings: ["Software Developer", "Freelancer", "A Friend :)"],  // Array of text strings
+        typeSpeed: 50,              // Typing speed in milliseconds
+        backSpeed: 25,              // Backspacing speed
+        backDelay: 1000,            // Delay before backspacing
+        startDelay: 500,            // Delay before starting the animation
+        loop: true                  // Loop the animation
+    });
+</script>
+
+{% endblock %}
