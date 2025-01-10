@@ -63,6 +63,9 @@
 
     <!-- Theme Toggle Script -->
     <script>
+     document.addEventListener('contextmenu', function(e) {
+     e.preventDefault();
+    });
         document.getElementById("theme-toggle").addEventListener("click", function() {          
             const cname = document.body.className;
             console.log(cname)
