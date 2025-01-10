@@ -12,7 +12,7 @@
             <!-- Left side: Text -->
             <div class="col-md-7 text-left">
                 <h1 class="display-4 text-left">Welcome to My Portfolio!</h1>
-                <p>I'm <strong>Mandava Geetha Bhargava</strong></p>
+                <p>I'm <strong>{{ candidate.fullname }}</strong></p>
 
                 <!-- Animated Text -->
                 <p class="lead text-primary">
@@ -21,13 +21,13 @@
 
                 <!-- Social Media Icons (optional) -->
                 <div class="d-flex mt-2 text-left">
-                    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="text-dark mx-3">
+                    <a href="{{ candidate.linkedin_url }}" target="_blank" class="text-dark mx-3">
                         <i class="fab fa-linkedin fa-2x"></i>
                     </a>
-                    <a href="https://github.com/yourusername" target="_blank" class="text-dark mx-3">
+                    <a href="{{ candidate.github_url }}" target="_blank" class="text-dark mx-3">
                         <i class="fab fa-github fa-2x"></i>
                     </a>
-                    <a href="https://www.researchgate.net/profile/yourprofile" target="_blank" class="text-dark mx-3">
+                    <a href="{{ candidate.researchgate_url }}" target="_blank" class="text-dark mx-3">
                         <i class="fab fa-researchgate fa-2x"></i>
                     </a>
                 </div>
@@ -36,7 +36,7 @@
             <!-- Right side: Circular Image -->
             <div class="col-md-5 align-items-right">
                 <div class="image-container">
-                <img src="https://avatars.githubusercontent.com/u/24910158?s=400&u=0a12bc9c48eab5960022e2bc7b5bd3d091a6cbab&v=4" alt="Your Photo" class="rounded-circle" width="600px" height="600px">
+                <img src="{{ candidate.image }}" alt="Your Photo" class="rounded-circle" width="600px" height="600px">
                 </div>
             </div>
         </div>
@@ -48,12 +48,11 @@
     <h2 class="text-center">About Me</h2>
     <div class="row">
         <div class="col-md-6 aboutmeimg" >
-            <img src="{% static 'portfolio/images/aboutme.jpg' %}" class="img-fluid" alt="About Image" width="600px" height="900px">
+            <img src="/gallery/{{ candidate.about_me_image }}" class="img-fluid" alt="About Image" width="600px" height="900px">
         </div>
         <div class="col-md-6 aboutme">
             <p style="color: blueviolet;">who am I?</p> <br/>
-            <p>Hello, I'm Mandava Geetha Bhargava, a dedicated Software Developer and Freelancer with a passion for creativity and rapid learning. I excel at problem-solving and have a strong background in Python and Django, specializing in developing dynamic web applications with Django and Flask, as well as mobile applications using Flutter. My track record highlights a commitment to delivering high-quality projects efficiently and effectively.</p>
-            <p>I hold an M.Tech in Computer Science and Engineering, alongside a B.Tech in Civil Engineering from K L University. Outside of my core work, I enjoy exploring Flutter and digital marketing, aiming to support others in launching their projects and research through freelancing, you can find my publication <a href="https://scholar.google.com/citations?user=2eeHnDUAAAAJ">here</a>. With nearly 4 years of hands-on experience, I am committed to creating innovative, user-focused solutions. Let’s connect and make your vision a reality!</p>
+            {{ candidate.about_me | safe }}
         </div>
     </div>
 </section>
@@ -63,38 +62,16 @@
     <h2 class="text-center">What I Can do?</h2>
     <p class="text-center">I may not be perfect but surely I'm of some use :)</p>
     <div class="row align-items-center">
+        {% for skill in skills %}
         <div class="col-md-3 mb-4">
             <div class="card">
-                <img src="{% static 'portfolio/images/webdev.jpg' %}" class="card-img-top" alt="Project 1">
+                <img src="/gallery/{{skill.image}}" class="card-img-top" alt="Project 1">
                 <div >
-                    <h5 style="text-align:center;">Web Development</h5>
+                    <h5 style="text-align:center;">{{skill.skill}}</h5>
                 </div>
             </div>
         </div>
-        <div class="col-md-3 mb-4">
-            <div class="card">
-                <img src="{% static 'portfolio/images/aiml.jpg' %}" class="card-img-top" alt="Project 2">
-                <div >
-                    <h5 style="text-align:center;">Machine Learning</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="card">
-                <img src="{% static 'portfolio/images/powerbi.jpg' %}" class="card-img-top" alt="Project 2">
-                <div >
-                    <h5 style="text-align:center;">Power BI</h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="card">
-                <img src="{% static 'portfolio/images/automation.jpg' %}" class="card-img-top" alt="Project 1">
-                <div >
-                    <h5 style="text-align:center;">Automation</h5>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
     </div>
 </section>
@@ -104,46 +81,18 @@
     <h2 class="text-center">Projects</h2>
     <div class="container">
     <div class="row align-items-center">
+        {% for project in projects %}
         <div class="col-md-3 mb-4">
             <div class="card">
-                <a href="https://github.com/Mgeethabhargava/Mgeethabhargava-AI-Stockpredictor-Chatbot" target="_blank" style="text-decoration: none;">
-                <img src="{% static 'portfolio/images/chatbot.jpg' %}" class="card-img-top" alt="Project 1">
+                <a href="{{ project.repo_url}}" target="_blank" style="text-decoration: none;">
+                <img src="/gallery/{{ project.image}}" class="card-img-top" alt="Project 1">
                 <div >
-                    <h5 style="text-align:center;color: black;" class="card-body">AI Stock Predictor Using Chatbot</h5>
+                    <h5 style="text-align:center;color: black;" class="card-body">{{ project.title}}</h5>
                 </div>
                 </a>
             </div>
         </div>
-        <div class="col-md-3 mb-4">
-            <div class="card">
-                <a href="https://github.com/Mgeethabhargava/newsapp-flutter" target="_blank" style="text-decoration: none;">
-                <img src="{% static 'portfolio/images/newsapp.jpg' %}" class="card-img-top" alt="Project 2">
-                <div >
-                    <h5  style="text-align:center;color: black;"class="card-body">News Mobile Application Using Flutter</h5>
-                </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="card">
-                <a href="https://github.com/Mgeethabhargava/InvoiceAutomate" target="_blank" style="text-decoration: none;">
-                <img src="{% static 'portfolio/images/cloudinvoice.jpg' %}" class="card-img-top" alt="Project 2">
-                <div >
-                    <h5 style="text-align:center;color: black;" class="card-body">Automation of Invoices using Azure Instance</h5>
-                </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-md-3 mb-4">
-            <div class="card">
-                <a href="https://github.com/Mgeethabhargava/certificate_generator" target="_blank" style="text-decoration: none;">
-                <img src="{% static 'portfolio/images/certificatesystem.jpg' %}" class="card-img-top" alt="Project 1">
-                <div >
-                    <h5 style="text-align:center;color: black;" class="card-body">Certificate Management using Flask</h5>
-                </div>
-                </a>
-            </div>
-        </div>
+        {% endfor %}
         <div class="container see-more-container">
             <button onclick="window.open('https://www.github.com/Mgeethabhargava', '_blank')" class="btn btn-success see-more-btn">See More</button>
         </div>
@@ -156,11 +105,12 @@
     <h2 class="text-center">Experience</h2>
     <div class="row">
         <div class="col-md-6 align-items-right" style="padding-left:15% ;">
-            <img src="{% static 'portfolio/images/experience.jpg' %}" class="img-fluid" alt="Experience Image" width="500" height="500">
+            <img src="/gallery/{{candidate.experience_image}}" class="img-fluid" alt="Experience Image" width="500" height="500">
         </div>
         <div class="col-md-6">
             <div class="container py-5">
                 <div class="row">
+                 {% for experience in experiences %}
                   <!-- First Entry -->
                   <div class="col-12">
                     <div class="timeline-card d-flex align-items-center">
@@ -168,42 +118,17 @@
                         <i class="bi bi-briefcase"></i>
                       </div>
                       <div>
-                        <div class="timeline-duration">Aug 2024 - Present</div>
-                        <div class="timeline-role">Freelancer</div>
-                        <div class="timeline-company"></div>
+                        <div class="timeline-duration">{{experience.start_date | date:"M, Y" }} - {{experience.end_date | date:"M, Y" }}</div>
+                        <div class="timeline-role">{{experience.role}}</div>
+                        <div class="timeline-company">{{experience.company}}</div>
                       </div>
                     </div>
                   </div>
-                  <!-- Second Entry -->
-                  <div class="col-12">
-                    <div class="timeline-card d-flex align-items-center">
-                      <div class="timeline-icon me-3">
-                        <i class="bi bi-briefcase"></i>
-                      </div>
-                      <div>
-                        <div class="timeline-duration">Oct 2023 - July 2024</div>
-                        <div class="timeline-role">Software Engineer</div>
-                        <div class="timeline-company">Nitya Software India P Ltd</div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Third Entry -->
-                  <div class="col-12">
-                    <div class="timeline-card d-flex align-items-center">
-                      <div class="timeline-icon me-3">
-                        <i class="bi bi-briefcase"></i>
-                      </div>
-                      <div>
-                        <div class="timeline-duration">May 2020 - Dec 2020</div>
-                        <div class="timeline-role">Junior Python Developer</div>
-                        <div class="timeline-company">Turbolab Technologies</div>
-                      </div>
-                    </div>
-                  </div>
+                  {% endfor %}
                 </div>
 
                         <div class="container see-more-container">
-            <button onclick="window.open('https://www.linkedin.com/in/mgbhargava/', '_blank')" class="btn btn-success see-more-btn">See More</button>
+            <button onclick="window.open('{{candidate.linkedin_url}}', '_blank')" class="btn btn-success see-more-btn">See More</button>
         </div>
               </div>
             
@@ -211,9 +136,11 @@
     </div>
 </section>
 <script>
+    let roles = JSON.parse('{{ candidate.roles | safe }}');
     // Initialize Typed.js for the animated text
     var typed = new Typed('#typed-text', {
-        strings: ["Software Developer", "Freelancer", "A Friend :)"],  // Array of text strings
+        
+        strings: roles,  // Array of text strings
         typeSpeed: 50,              // Typing speed in milliseconds
         backSpeed: 25,              // Backspacing speed
         backDelay: 1000,            // Delay before backspacing
