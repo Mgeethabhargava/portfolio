@@ -136,7 +136,5 @@ CSRF_TRUSTED_ORIGINS = [
     'https://mgbhargava.azurewebsites.net',
     'https://www.mgbhargava.me/admin',
     'https://mgbhargava.azurewebsites.net/admin',
-    'www.mgbhargava.azurewebsites.net', 'www.mgbhargava.me', 'mgbhargava.azurewebsites.net', 'mgbhargava.me',
-    'www.mgbhargava.azurewebsites.net/admin', 'www.mgbhargava.me/admin', 'mgbhargava.azurewebsites.net/admin', 'mgbhargava.me/admin'
 ]
 CSRF_COOKIE_SECURE = True
