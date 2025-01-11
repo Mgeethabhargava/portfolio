@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['www.mgbhargava.azurewebsites.net', 'www.mgbhargava.me', 'mgbhargava.azurewebsites.net', 'mgbhargava.me']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -130,3 +129,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')  # Directory to store uploaded fi
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://mgbhargava.me',
+    'https://www.mgbhargava.me',
+    'https://mgbhargava.azurewebsites.net',
+    'https://www.mgbhargava.me/admin',
+    'https://mgbhargava.azurewebsites.net/admin',
+    'www.mgbhargava.azurewebsites.net', 'www.mgbhargava.me', 'mgbhargava.azurewebsites.net', 'mgbhargava.me',
+    'www.mgbhargava.azurewebsites.net/admin', 'www.mgbhargava.me/admin', 'mgbhargava.azurewebsites.net/admin', 'mgbhargava.me/admin'
+]
+CSRF_COOKIE_SECURE = True
