@@ -5,4 +5,5 @@ admin.site.register(Candidate)
 admin.site.register(Experience)
 admin.site.register(Project)
 admin.site.register(Skill)
+
 admin.site.register(CandidateSkill)
