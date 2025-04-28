@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-m0j1dt^a-xwd=j1^7y5#g_&7@q)1vyrw7s8ha-^z9vvtw!&0_i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.mgbhargava.azurewebsites.net', 'www.mgbhargava.me', 'mgbhargava.azurewebsites.net', 'mgbhargava.me']
+ALLOWED_HOSTS = ['www.mgbhargava.me', 'mgbhargava.me']
 
 # Application definition
 
@@ -74,14 +74,27 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django_mssql_backend',
+        'NAME': 'mgbhargava-db',
+        'USER': 'mgbhargava@mgbhargavaserverdb',
+        'PASSWORD': 'Mgb@2323',
+        'HOST': 'mgbhargavaserverdb.database.windows.net',
+        'PORT': '1433',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 18 for SQL Server',  # Use 17 if 18 not available
+            'extra_params': 'Encrypt=yes;TrustServerCertificate=no;',
+        },
     }
 }
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -134,8 +147,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
     'https://mgbhargava.me',
     'https://www.mgbhargava.me',
-    'https://mgbhargava.azurewebsites.net',
     'https://www.mgbhargava.me/admin',
-    'https://mgbhargava.azurewebsites.net/admin',
+
 ]
 CSRF_COOKIE_SECURE = True
